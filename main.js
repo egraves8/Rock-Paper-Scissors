@@ -32,7 +32,7 @@ btns.forEach(btn => {
 const scoreboard = document.createElement('center');
 scoreboard.innerText = String(yourScore) + " - " + String(comScore);
 scoreboard.style.color = '#03DAC5';
-scoreboard.style.fontSize = "4em";
+scoreboard.style.fontSize = '0em';
 document.body.appendChild(scoreboard);
 
 const report = document.createElement('center');
@@ -132,15 +132,22 @@ function printLetterByLetter(destination, message, speed){
 }
 
 var opacity = 0;
-var intervalID = 0;
+var handle1;
+var handle2;
 var selected = document.querySelector("#buttons");
 selected.style.cssText = "opacity: 0;"
-window.onload = fadeIn;
+window.onload = effects;
+//window.onload = growth;
 
-function fadeIn(){
+var size = 0;
+
+function effects(){
     setTimeout(function() {
-        setInterval(show, 10);
+        handle1 = setInterval(show, 10);
     }, 10000);
+    setTimeout(function() {
+        handle2 = setInterval(grow, 50);
+    }, 12000);
 }
 
 function show() {
@@ -151,10 +158,23 @@ function show() {
         selected.style.opacity = opacity;
         console.log(selected.style.opacity);
     } else {
-        clearInterval(intervalID);
+        clearInterval(handle1);
         selected.style.opacity = opacity;
         console.log(selected.style.opacity);
     }
+}
+
+function grow() {
+    if (size < 4) {
+        size += 0.1;
+        scoreboard.style.fontSize = String(size) + 'em';
+        console.log(scoreboard.style.fontSize);
+    } else {
+        clearInterval(handle2);
+        selected.style.fontSize = String(size) + 'em';
+        console.log(selected.style.fontSize);
+    }
+
 }
 
 /*function game(){
