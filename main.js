@@ -1,5 +1,7 @@
 printLetterByLetter("#title", "The Ultimate Game", 100);
-printLetterByLetter(".sub", "First to 5 Wins.........May the Best Player Win", 125);
+setTimeout(function() {
+    printLetterByLetter(".sub", "First to 5 Wins.........May the Best Player Win", 125);
+}, 3000);
 
 let yourScore = 0;
 let comScore = 0;    
@@ -120,13 +122,39 @@ function printLetterByLetter(destination, message, speed){
     var interval = setInterval(function(){
         const titles = document.querySelector(destination);
         text += message.charAt(i);
-        console.log(text);
+        //console.log(text);
         titles.innerText = text;
         i++;
         if (i > message.length){
             clearInterval(interval);
         }
     }, speed);
+}
+
+var opacity = 0;
+var intervalID = 0;
+var selected = document.querySelector("#buttons");
+selected.style.cssText = "opacity: 0;"
+window.onload = fadeIn;
+
+function fadeIn(){
+    setTimeout(function() {
+        setInterval(show, 10);
+    }, 10000);
+}
+
+function show() {
+    selected.style.cssText = "opacity: 0;"
+    //opacity = Number(window.getComputedStyle(selected).getPropertyValue("opacity"));
+    if (opacity < 1) {
+        opacity += 0.005;
+        selected.style.opacity = opacity;
+        console.log(selected.style.opacity);
+    } else {
+        clearInterval(intervalID);
+        selected.style.opacity = opacity;
+        console.log(selected.style.opacity);
+    }
 }
 
 /*function game(){
