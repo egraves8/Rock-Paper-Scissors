@@ -1,0 +1,60 @@
+header {
+    height: 3.5em;
+    background-color: rgb(18, 18, 18);
+}
+header center {
+    padding-top: 0.6em;
+    font-size: 1.5rem;
+    color:#BB86FC;
+}
+
+body {
+    background-color: black;
+}
+
+button {
+    width: 25%;
+    margin-top: 5rem;
+    margin-bottom: 8rem;
+    background-color:rgb(18, 18, 18);
+    margin-right: 2em;
+    margin-left: 2em;
+}
+
+button:hover {
+    background-color: #03DAC5;
+}
+
+center{
+    color: white;
+}
+
+.sub {
+    color: #03DAC5;
+    font-size: 1.1em;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: rgb(40, 40, 40);
+}
+
+img {
+    padding-top: 0.5em;
+}
+
+.container {
+    height: 1.2rem;
+    width: 100%;
+    background-color: rgb(60, 60, 60);
+    color: #BB86FC;
+}
+
+footer {
+    color: white;
+    position: fixed;
+    background-color: rgb(18, 18, 18);
+    bottom: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+}
