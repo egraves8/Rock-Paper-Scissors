@@ -1,3 +1,6 @@
+printLetterByLetter("#title", "The Ultimate Game", 100);
+printLetterByLetter(".sub", "First to 5 Wins.........May the Best Player Win", 125);
+
 let yourScore = 0;
 let comScore = 0;    
 let result;
@@ -110,6 +113,22 @@ function scoreForRound(yourScore, comScore){
     }
     console.log(String(yourScore + " - " + comScore));
 }
+
+function printLetterByLetter(destination, message, speed){
+    var i = 0;
+    var text = "";
+    var interval = setInterval(function(){
+        const titles = document.querySelector(destination);
+        text += message.charAt(i);
+        console.log(text);
+        titles.innerText = text;
+        i++;
+        if (i > message.length){
+            clearInterval(interval);
+        }
+    }, speed);
+}
+
 /*function game(){
     let yourScore = 0;
     let comScore = 0;
